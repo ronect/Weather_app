@@ -1,38 +1,15 @@
-/*const pizza = false;
-function pizzaReady(){
-    return new Promise((resolve) => {
-        setTimeout(()=>{if (pizza === true)
-            resolve('pizza done')
-        else {
-            console.log('pizza burned')
-        }},1000)
+/*function weatherSearch(){
+    fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=EV4SF3F5XRZMUTM5P6NVBFQ87')
+    .then((response)=>{
+        return response.json()
+
+    }).then
+    ((data)=>{
+        console.log(data)
     })
-}
-pizzaReady().then((ans)=>{
-    console.log(ans);
-})
-.catch((e)=>{
-    console.log(e)
-})
-console.log('waiting for pizza')
-
-
-async function pizzaRead(){try{
-    const ready = await new Promise((resolve,reject) => {
-        setTimeout(()=>{if (pizza === true)
-            resolve('pizza done')
-            else {
-            reject('pizza burned')
-        }},1000)
-    })
-    console.log(ready)
-}
-catch(e){
-    console.log(e)
-}
-
-}
-pizzaRead();
-
-
-*/
+}*/
+async function weatherSearch(){
+    const response = await fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=EV4SF3F5XRZMUTM5P6NVBFQ87')
+   const data = await response.json() 
+    console.log(data)}
+weatherSearch();
