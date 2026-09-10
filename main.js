@@ -9,6 +9,11 @@
     })
 }*/
 // Dom 
+function today(){const weekdays = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+const date = new Date();
+const today = weekdays[date.getDay()]
+return today}
+
 // Weather Api
 async function weatherSearch(location){
     try{
@@ -37,29 +42,37 @@ async function updateDom(location){
 
    // const giphyData = await backgroundGiph();
 
-    const current = weatherData.days[0];
+    const current = weatherData.currentConditions;
 
     //dom stuff
 
+     const day = document.getElementById('Today')
+
     const temp = document.getElementById('temperature')
+
+    const pressure = document.getElementById('pressure')
+
+    const humidity = document.getElementById('humidity')
 
     const condition = document.getElementById('condition')
 
     const feelLike = document.getElementById('feels-like')
 
-    const humidity = document.getElementById('humidity')
-
     const wind = document.getElementById('wind')
     
     temp.textContent = `${current.temp}°`;
 
-    condition.textContent = `${current.description}`;
+    pressure.textContent = `${current.pressure}`;
+
+    condition.textContent = `${current.conditions}`;
 
     feelLike.textContent = `${current.feelslike}°`;
 
     humidity.textContent = `${current.humidity}%`;
 
     wind.textContent = `${current.windspeed} mph`;
+
+    day.textContent = today();
 
    
 }
