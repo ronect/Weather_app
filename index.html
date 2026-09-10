@@ -15,45 +15,47 @@
     </header>
 
     <main>
-      <!-- Search -->
-      <form id="weather-form">
-        <label for="city">Search City</label>
+      <div id="main-container">
+        <!-- Search -->
+        <form id="weather-form">
+          <label for="city">Search City</label>
 
-        <input type="text" id="city" placeholder="Enter a city" required />
+          <input type="text" id="city" placeholder="Enter a city" required />
 
-        <button type="submit">Search</button>
-      </form>
+          <button type="submit">Search</button>
+        </form>
 
-      <!-- Current Weather -->
-      <section class="weather-container">
-        <h2 id="location">City</h2>
+        <!-- Current Weather -->
+        <section class="weather-container">
+          <h2 id="location">City</h2>
 
-        <div class="current-weather">
-          <img id="weather-icon" src="" alt="Weather condition" />
+          <div class="current-weather">
+            <img id="weather-icon" src="" alt="Weather condition" />
 
-          <p id="temperature">--°</p>
+            <p id="temperature">--°</p>
 
-          <p id="condition">Weather condition</p>
-        </div>
-
-        <!-- Extra Weather Information -->
-        <div class="weather-details">
-          <div>
-            <h3>Feels Like</h3>
-            <p id="feels-like">--°</p>
+            <p id="condition">Weather condition</p>
           </div>
 
-          <div>
-            <h3>Humidity</h3>
-            <p id="humidity">--%</p>
-          </div>
+          <!-- Extra Weather Information -->
+          <div class="weather-details">
+            <div>
+              <h3>Feels Like</h3>
+              <p id="feels-like">--°</p>
+            </div>
 
-          <div>
-            <h3>Wind</h3>
-            <p id="wind">-- mph</p>
+            <div>
+              <h3>Humidity</h3>
+              <p id="humidity">--%</p>
+            </div>
+
+            <div>
+              <h3>Wind</h3>
+              <p id="wind">-- mph</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <script src="main.js"></script>

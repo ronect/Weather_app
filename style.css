@@ -1,0 +1,44 @@
+html{
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Header  */
+
+header{
+    display: block;
+    width:100%;
+    text-align:center;
+    padding: .2rem;
+    position: fixed;
+    border-bottom: solid .1rem black;
+    background-color: white;
+}
+
+
+/*   Main  */
+
+main{
+    padding-top: 6rem ;
+}
+#main-container{
+    width: 95%;
+    margin: auto 0;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap:.4rem;
+    width:50%;
+    margin: 0 auto;
+}
+
+/* Weather Card */
+.weather-container{
+ display:grid;
+ border: 2px black solid;
+ box-shadow: 1px 1px 5px;
+ text-align: center;
+}
