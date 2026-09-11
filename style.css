@@ -2,6 +2,18 @@ html{
     box-sizing: border-box;
     font-size: 16px;
 }
+.img-container {
+  width: 75%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 
 /* Header  */
 
@@ -23,8 +35,7 @@ main{
 }
 #main-container{
     width: 95%;
-    margin: auto 0;
-
+    margin: 0 auto ;
 }
 form{
     display: flex;
@@ -38,7 +49,22 @@ form{
 /* Weather Card */
 .weather-container{
  display:grid;
+ grid-template-columns: minmax(0, 1fr);
+
  border: 2px black solid;
  box-shadow: 1px 1px 5px;
  text-align: center;
+ overflow: hidden;
+}
+.hourly-weather ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+.hourly-weather li {
+  text-align: center;
+  width:16%;
+  margin: 0 auto;
 }
