@@ -13,6 +13,81 @@ function today(){const weekdays = ["Sunday", "Monday","Tuesday","Wednesday","Thu
 const date = new Date();
 const today = weekdays[date.getDay()]
 return today}
+function currentHour(){
+    const hour = new Date();
+    const current = hour.getHours();
+    return current;
+}
+function weatherIcon(data,hourIndex){
+    let icon;
+   if(hourIndex >= 24){
+        hourIndex -=  24;
+        icon = data.days[1].hours[hourIndex].icon;
+    }
+     icon = data.days[0].hours[hourIndex].icon;
+     switch(icon){
+        case ('clear-day'):
+            return 
+        case ('snow'):
+        case ('rain'):  
+        case ('fog'):
+        case ('wind'):
+        case ('cloudy'):
+        case ('clear-day'):
+         case ('clear-night'):
+         case ('partly-cloudy-day'):
+         case ('partly-cloudy-night'):
+     }}
+    
+
+function getHourlyTemp(data, hourIndex) {
+    if(hourIndex >= 24){
+        hourIndex -=  24;
+        return data.days[1].hours[hourIndex].temp;
+    }
+  return data.days[0].hours[hourIndex].temp;}
+
+function upcomingHours(data){
+  let timer = 23;
+  let setTime
+  let temp 
+
+for (let i = 0; i < 6; i++) {
+  let ampm;
+
+  if (timer % 24 >= 12) {
+    ampm = "pm";
+  } else {
+    ampm = "am";
+  }
+
+  let hour = timer % 12;
+
+  hour = hour ? hour : 12;
+temp = getHourlyTemp(data,timer)
+   setTime = (hour + ampm)
+upcomingHoursDom(setTime,temp)
+  timer++;
+}}
+
+function upcomingHoursDom(hour,temperature){
+    const hourlyList = document.getElementById("hourly-list")
+    const li = document.createElement('li')
+    const time = document.createElement("p")
+    time.classList.add("time")
+    const imgContainer = document.createElement("div")
+    imgContainer.classList.add("img-container")
+   const img = document.createElement("img")
+   const temp = document.createElement("p")
+   temp.classList.add("description")
+   li.append(time,imgContainer,temp)
+   imgContainer.appendChild(img)
+   hourlyList.appendChild(li)
+
+   time.textContent = hour
+   temp.textContent = temperature;
+}
+
 
 // Weather Api
 async function weatherSearch(location){
@@ -38,11 +113,13 @@ async function backgroundGiph(){
 
 async function updateDom(location){
     const weatherData = await weatherSearch(location);
-   
+   upcomingHours(weatherData)
 
    // const giphyData = await backgroundGiph();
 
     const current = weatherData.currentConditions;
+    
+    const upcoming = weatherData.days
 
     //dom stuff
 
@@ -56,32 +133,39 @@ async function updateDom(location){
 
     const condition = document.getElementById('condition')
 
-    const feelLike = document.getElementById('feels-like')
-
-    const wind = document.getElementById('wind')
     
-    temp.textContent = `${current.temp}°`;
+
+    //upcoming div dom stuff 
+
+    const todayTemp = document.getElementById("today-temp")
+    
+    const tomorrowTemp = document.getElementById("tomorrow-temp")
+    
+    const afTomorrowTemp = document.getElementById("af-tomorrow-temp")
+    
+    temp.textContent = `${Math.floor(current.temp)}°`;
 
     pressure.textContent = `${current.pressure}`;
 
     condition.textContent = `${current.conditions}`;
 
-    feelLike.textContent = `${current.feelslike}°`;
-
     humidity.textContent = `${current.humidity}%`;
-
-    wind.textContent = `${current.windspeed} mph`;
 
     day.textContent = today();
 
-   
+   todayTemp.textContent = `${upcoming[0].temp}°`;
+
+   tomorrowTemp.textContent = `${upcoming[1].temp}°`;
+
+   afTomorrowTemp.textContent = `${upcoming[2].temp}°`
 }
+
 
  const form = document.getElementById('weather-form')
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         const location = document.getElementById("city").value
-        updateDom(location);
+        document.getElementById("location").textContent= location.charAt(0).toUpperCase() + location.slice(1);
 
 
 
