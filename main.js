@@ -18,28 +18,37 @@ function currentHour(){
     const current = hour.getHours();
     return current;
 }
-function weatherIcon(data,hourIndex){
-    let icon;
-   if(hourIndex >= 24){
+function weatherIcon(icon){
+     switch(icon){
+        case ('clear-day'):
+            return 'Images/sun.png'
+        case ('snow'):
+            return 'Images/snowing.png'
+        case ('rain'): 
+        return 'Images/rain.png'
+        case ('fog'):
+            return 'Images/fog.png'
+        case ('wind'):
+            return 'Images/fog.png'
+        case ('cloudy'):
+            return 'Images/cloudy-day.png'
+         case ('clear-night'):
+            return 'Images/moon.png'
+         case ('partly-cloudy-day'):
+            return 'Images/sun_cloudy.png'
+         case ('partly-cloudy-night'):
+            return 'Images/cloudy-moon.png'
+           default:
+            return 'Images/weather-news.png'
+    
+     }}
+     function gethourlyIcon(data,hourIndex){
+        if(hourIndex >= 24){
         hourIndex -=  24;
         icon = data.days[1].hours[hourIndex].icon;
     }
-     icon = data.days[0].hours[hourIndex].icon;
-     switch(icon){
-        case ('clear-day'):
-            return 
-        case ('snow'):
-        case ('rain'):  
-        case ('fog'):
-        case ('wind'):
-        case ('cloudy'):
-        case ('clear-day'):
-         case ('clear-night'):
-         case ('partly-cloudy-day'):
-         case ('partly-cloudy-night'):
-     }}
-    
-
+      else {icon = data.days[0].hours[hourIndex].icon;}
+     }
 function getHourlyTemp(data, hourIndex) {
     if(hourIndex >= 24){
         hourIndex -=  24;
@@ -48,9 +57,11 @@ function getHourlyTemp(data, hourIndex) {
   return data.days[0].hours[hourIndex].temp;}
 
 function upcomingHours(data){
-  let timer = 23;
+  let timer = currentHour();
   let setTime
   let temp 
+  let icon
+  let src
 
 for (let i = 0; i < 6; i++) {
   let ampm;
@@ -65,12 +76,14 @@ for (let i = 0; i < 6; i++) {
 
   hour = hour ? hour : 12;
 temp = getHourlyTemp(data,timer)
+icon = gethourlyIcon(data,timer)
+src = weatherIcon(icon)
    setTime = (hour + ampm)
-upcomingHoursDom(setTime,temp)
+upcomingHoursDom(setTime,temp,icon)
   timer++;
 }}
 
-function upcomingHoursDom(hour,temperature){
+function upcomingHoursDom(hour,temperature,src){
     const hourlyList = document.getElementById("hourly-list")
     const li = document.createElement('li')
     const time = document.createElement("p")
@@ -83,8 +96,8 @@ function upcomingHoursDom(hour,temperature){
    li.append(time,imgContainer,temp)
    imgContainer.appendChild(img)
    hourlyList.appendChild(li)
-
-   time.textContent = hour
+img.src = src;
+   time.textContent = hour;
    temp.textContent = temperature;
 }
 
@@ -165,6 +178,7 @@ async function updateDom(location){
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         const location = document.getElementById("city").value
+        updateDom(location)
         document.getElementById("location").textContent= location.charAt(0).toUpperCase() + location.slice(1);
 
 
