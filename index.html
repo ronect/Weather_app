@@ -36,37 +36,45 @@
               Pressure: <span id="pressure"></span> | humidity:
               <span id="humidity"> </span>
             </p>
-            <p><span id="Today"></span><strong> Today</strong></p>
+            <p id="today-line">
+              <span id="today"></span><strong> Today</strong>
+            </p>
           </div>
 
           <!-- Extra Weather Information -->
           <div class="hourly-weather">
             <ul id="hourly-list">
-              <li>
+              <!--  <li>
                 <p>Now</p>
                 <div class="img-container">
                   <img id="img-0" src="allie.png" />
                 </div>
                 <p id="description-0">0</p>
-              </li>
+              </li>-->
             </ul>
           </div>
 
           <div class="upcoming-weather">
             <ul>
               <li>
-                <strong>Today</strong>
-                <div class="img-container"><img src="allie.png" /></div>
+                <strong class="day">Today</strong>
+                <div class="img-container">
+                  <img id="today-img" src="allie.png" />
+                </div>
                 <strong><span id="today-temp">6</span> </strong>
               </li>
               <li>
-                <strong>Tomorrow</strong>
-                <div class="img-container"><img src="allie.png" /></div>
+                <strong class="day">Tomorrow</strong>
+                <div class="img-container">
+                  <img id="tomorrow-img" src="allie.png" />
+                </div>
                 <strong><span id="tomorrow-temp">-7</span> </strong>
               </li>
               <li>
-                <strong>Day Afrter tomorrow</strong>
-                <div class="img-container"><img src="allie.png" /></div>
+                <strong class="day">Day Afrter tomorrow</strong>
+                <div class="img-container">
+                  <img id="day-after-tomorrow-img" src="allie.png" />
+                </div>
                 <strong><span id="af-tomorrow-temp">6</span> </strong>
               </li>
             </ul>

@@ -49,11 +49,22 @@ form{
 /* Weather Card */
 .weather-container{
  display:grid;
+ width: 500px;
+ margin: 0 auto;
  grid-template-columns: minmax(0, 1fr);
  border: 2px black solid;
  box-shadow: 1px 1px 5px;
  text-align: center;
  overflow: hidden;
+}
+
+.current-weather #today-line {
+    float: left;
+    margin-left: 1rem;;
+}
+.hourly-weather{
+    border-top: solid black 2px;
+    border-bottom:solid black 2px
 }
 .hourly-weather ul {
   display: flex;
@@ -69,9 +80,17 @@ form{
 }
 
 .upcoming-weather li{
-    display: grid;
-   grid-template-columns: repeat(3,minmax(0,1fr));
+display: grid;
+grid-template-columns: repeat(3,minmax(0,1fr));
 place-items: center;
-gap:10px;
+gap:5px;
 margin-bottom: 2px;
+}
+.upcoming-weather .day{
+justify-self: left;
+}
+.upcoming-weather .img-container {
+  width: 30px;
+  overflow: hidden;
+  margin: 0 auto;
 }

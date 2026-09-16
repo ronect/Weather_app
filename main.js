@@ -33,7 +33,7 @@ function weatherIcon(icon){
         case ('cloudy'):
             return 'Images/cloudy-day.png'
          case ('clear-night'):
-            return 'Images/moon.png'
+            return './Images/moon.png'
          case ('partly-cloudy-day'):
             return 'Images/sun_cloudy.png'
          case ('partly-cloudy-night'):
@@ -45,9 +45,9 @@ function weatherIcon(icon){
      function gethourlyIcon(data,hourIndex){
         if(hourIndex >= 24){
         hourIndex -=  24;
-        icon = data.days[1].hours[hourIndex].icon;
+        return data.days[1].hours[hourIndex].icon;
     }
-      else {icon = data.days[0].hours[hourIndex].icon;}
+      else {return data.days[0].hours[hourIndex].icon;}
      }
 function getHourlyTemp(data, hourIndex) {
     if(hourIndex >= 24){
@@ -79,7 +79,7 @@ temp = getHourlyTemp(data,timer)
 icon = gethourlyIcon(data,timer)
 src = weatherIcon(icon)
    setTime = (hour + ampm)
-upcomingHoursDom(setTime,temp,icon)
+upcomingHoursDom(setTime,temp,src)
   timer++;
 }}
 
@@ -136,7 +136,7 @@ async function updateDom(location){
 
     //dom stuff
 
-     const day = document.getElementById('Today')
+     const day = document.getElementById('today')
 
     const temp = document.getElementById('temperature')
 
@@ -171,6 +171,10 @@ async function updateDom(location){
    tomorrowTemp.textContent = `${upcoming[1].temp}°`;
 
    afTomorrowTemp.textContent = `${upcoming[2].temp}°`
+
+   document.getElementById("today-img").src  = weatherIcon(upcoming[0].icon)
+        document.getElementById("tomorrow-img").src = weatherIcon(upcoming[1].icon)
+        document.getElementById("day-after-tomorrow-img").src  = weatherIcon(upcoming[2].icon)
 }
 
 
