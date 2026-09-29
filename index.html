@@ -7,6 +7,12 @@
     <title>Weather App</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -18,64 +24,83 @@
       <div id="main-container">
         <!-- Search -->
         <form id="weather-form">
-          <label for="city">Search City</label>
+          <label for="city">
+            <h2>Search City</h2>
+          </label>
+
           <input type="text" id="city" placeholder="Enter a city" required />
 
           <button type="submit">Search</button>
         </form>
 
-        <!-- Current Weather -->
-        <section class="weather-container">
+        <p id="error-message"></p>
+
+        <!-- Weather -->
+        <section class="weather-container hidden">
+          <!-- Current Weather -->
           <div class="current-weather">
             <h2 id="location">City</h2>
+
             <p id="condition">Weather condition</p>
 
             <p id="temperature">--°</p>
 
-            <p id="condition">
-              Pressure: <span id="pressure"></span> | humidity:
-              <span id="humidity"> </span>
+            <p>
+              Pressure: <span id="pressure"></span> | Humidity:
+              <span id="humidity"></span>
             </p>
+
             <p id="today-line">
-              <span id="today"></span><strong> Today</strong>
+              <span id="today"></span>
+              <strong>Today</strong>
             </p>
           </div>
 
-          <!-- Extra Weather Information -->
+          <!-- Hourly Weather -->
           <div class="hourly-weather">
-            <ul id="hourly-list">
-              <!--  <li>
-                <p>Now</p>
-                <div class="img-container">
-                  <img id="img-0" src="allie.png" />
-                </div>
-                <p id="description-0">0</p>
-              </li>-->
-            </ul>
+            <ul id="hourly-list"></ul>
           </div>
 
+          <!-- Upcoming Weather -->
           <div class="upcoming-weather">
             <ul>
               <li>
                 <strong class="day">Today</strong>
+
                 <div class="img-container">
-                  <img id="today-img" src="allie.png" />
+                  <img id="today-img" alt="Today's weather" />
                 </div>
-                <strong><span id="today-temp">6</span> </strong>
+
+                <strong>
+                  <span id="today-temp"></span>
+                </strong>
               </li>
+
               <li>
                 <strong class="day">Tomorrow</strong>
+
                 <div class="img-container">
-                  <img id="tomorrow-img" src="allie.png" />
+                  <img id="tomorrow-img" alt="Tomorrow's weather" />
                 </div>
-                <strong><span id="tomorrow-temp">-7</span> </strong>
+
+                <strong>
+                  <span id="tomorrow-temp"></span>
+                </strong>
               </li>
+
               <li>
-                <strong class="day">Day Afrter tomorrow</strong>
+                <strong class="day">Day After Tomorrow</strong>
+
                 <div class="img-container">
-                  <img id="day-after-tomorrow-img" src="allie.png" />
+                  <img
+                    id="day-after-tomorrow-img"
+                    alt="Day after tomorrow's weather"
+                  />
                 </div>
-                <strong><span id="af-tomorrow-temp">6</span> </strong>
+
+                <strong>
+                  <span id="af-tomorrow-temp"></span>
+                </strong>
               </li>
             </ul>
           </div>

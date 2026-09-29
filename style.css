@@ -1,7 +1,11 @@
-html{
-    box-sizing: border-box;
-    font-size: 16px;
+html {
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;font-family: "Montserrat", sans-serif;
 }
+
+/* Images */
+
 .img-container {
   width: 75%;
   overflow: hidden;
@@ -15,57 +19,71 @@ html{
   display: block;
 }
 
-/* Header  */
+/* Header */
 
-header{
-    display: block;
-    width:100%;
-    text-align:center;
-    padding: .2rem;
-    position: fixed;
-    border-bottom: solid .1rem black;
-    background-color: white;
+header {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.2rem;
+  position: fixed;
+  color: black;
+  border-bottom: solid 0.1rem black;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
 }
 
+/* Main */
 
-/*   Main  */
+main {
+  padding-top: 6rem;
+}
 
-main{
-    padding-top: 6rem ;
+#main-container {
+  width: 95%;
+  margin: 0 auto;
 }
-#main-container{
-    width: 95%;
-    margin: 0 auto ;
-}
-form{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap:.4rem;
-    width:50%;
-    margin: 0 auto;
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.4rem;
+  width: 50%;
+  margin: 0 auto;
 }
 
 /* Weather Card */
-.weather-container{
- display:grid;
- width: 500px;
- margin: 0 auto;
- grid-template-columns: minmax(0, 1fr);
- border: 2px black solid;
- box-shadow: 1px 1px 5px;
- text-align: center;
- overflow: hidden;
+
+.weather-container {
+  display: grid;
+  width: 500px;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr);
+  border: 2px solid black;
+  box-shadow: 1px 1px 5px;
+  text-align: center;
+  overflow: hidden;
 }
 
 .current-weather #today-line {
-    float: left;
-    margin-left: 1rem;;
+  float: left;
+  margin-left: 1rem;
 }
-.hourly-weather{
-    border-top: solid black 2px;
-    border-bottom:solid black 2px
+
+#temperature {
+  font-size: 4rem;
+  margin: 0;
 }
+
+/* Hourly Weather */
+
+.hourly-weather {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
 .hourly-weather ul {
   display: flex;
   justify-content: space-between;
@@ -73,24 +91,35 @@ form{
   list-style: none;
   padding: 0;
 }
+
 .hourly-weather li {
   text-align: center;
-  width:16%;
+  width: 16%;
   margin: 0 auto;
 }
 
-.upcoming-weather li{
-display: grid;
-grid-template-columns: repeat(3,minmax(0,1fr));
-place-items: center;
-gap:5px;
-margin-bottom: 2px;
+/* Upcoming Weather */
+
+.upcoming-weather li {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  place-items: center;
+  gap: 5px;
+  margin-bottom: 2px;
 }
-.upcoming-weather .day{
-justify-self: left;
+
+.upcoming-weather .day {
+  justify-self: left;
 }
+
 .upcoming-weather .img-container {
   width: 30px;
   overflow: hidden;
   margin: 0 auto;
+}
+
+/* Utility */
+
+.hidden {
+  display: none;
 }
